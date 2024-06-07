@@ -10,6 +10,7 @@ import Cadastro from "./pages/Cadastro/Cadastro"
 import PostCompleto from "./pages/PostCompleto/PostCompleto";
 import CriarPubli from "./pages/CriarPubli/CriarPubli";
 import EditarPubli from "./pages/EditarPubli/EditarPubli";
+import Footer from "./components/Footer/Footer"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/editar" element={<EditarPubli/>}/>
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }

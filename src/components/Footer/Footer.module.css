@@ -1,0 +1,28 @@
+footer{
+    height: 850px;
+    width: 100%;
+    
+}
+
+footer div.content-container{
+    background-color:rgba(4, 171, 7, 0.3) ;
+    float: left;
+    height: 100%;
+    width: 75%;
+    
+}
+footer div.content-container li{
+    list-style: none;
+}
+
+
+
+
+
+
+
+
+
+footer div.team-container{
+    padding: 15px;
+}

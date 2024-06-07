@@ -10,7 +10,6 @@
   
   }
   
-  
   .container {
     width: 983px;
     height: 474px;
@@ -20,6 +19,7 @@
     margin: auto; 
     margin-left: 5%;
     margin-top: 10%;
+    padding: 75px;
    }
   
   .formTitle {
