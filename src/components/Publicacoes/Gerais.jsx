@@ -11,7 +11,7 @@ const Gerais = () => {
     navigate('/PostCompleto')
   }
   return (
-    <>GERAIS
+    <>
  <section>
         <div className={style.estrutura}>
           <div className={style.row}>
