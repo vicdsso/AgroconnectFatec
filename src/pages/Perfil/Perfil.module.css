@@ -288,3 +288,33 @@ hr{
 
 
 
+@media only screen and (max-width: 768px) {
+    .nome-parceiroSobre{
+        padding-top: 10%;
+        font-size: 25px;
+        }
+        .sobre-parceiro{
+          
+           font-size: 15px;
+          
+        }
+  
+    .container-disponivel {
+      width: 100%; /* Alterando a largura para ocupar toda a largura disponível */
+      margin-left: 0; /* Removendo a margem esquerda */
+      margin-top: 70%; /* Adicionando margem superior para espaçamento */
+    }
+  
+    .banner {
+      width: 80%; /* Alterando a largura para ocupar toda a largura disponível */
+      margin-left: 5%; /* Removendo a margem esquerda */
+    }
+  
+    .fundo-banner {
+      width: 100%; /* Alterando a largura para ocupar toda a largura disponível */
+      margin-left: 0; /* Removendo a margem esquerda */
+      margin-top: -50px; /* Mantendo o espaçamento superior */
+    height: 180%;
+    }
+  }
+  

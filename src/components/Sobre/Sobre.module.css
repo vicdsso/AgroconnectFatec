@@ -1,0 +1,89 @@
+/* footer------------------------------------  */
+footer{
+    height: auto;
+    width: 100%;
+    display: flex;
+    
+}
+
+/* content container-------------------------------------------------- */
+footer div.content-container{
+    background-color:rgba(4, 171, 7, 0.3) ;
+    float: left;
+    height: 100%;
+    width: 75%;
+    padding-top: 75px;
+    padding-bottom: 50px;
+    font-size: 30px;
+}
+footer div.content-container h1{
+    color: rgba(166, 50, 50, 1);
+    font-size: 45px;
+    font-weight: bolder;
+    text-align: center;
+    padding-bottom: 20px;
+}
+footer div.content-container h3{
+    font-weight: bold;
+    padding-left:250px;
+}
+footer div.content-container ul{
+    display: inline;
+    padding-left: 75px;
+}
+footer div.content-container ul li{
+    list-style: none;
+    margin-left:60px ;
+    padding-left: 75px;
+
+}
+footer div.content-container ul li ul li{
+    list-style:disc;
+    margin-left:200px ;
+}
+footer div ul li img{
+    width: 95px;
+    margin-right: 75px;
+    align-items: center;
+    
+    
+}
+footer div.content-container ul li p, p{
+    padding-top: 15px;
+}
+p{
+    text-align: center;
+}
+
+/* team container-------------------------------------- */
+footer div.team-container{
+    text-align: center;
+    float: right;
+    width: 25%;
+    padding-top: 15px;
+    align-content: center;
+    
+}
+footer div.team-container h3{
+    font-size:30px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    font-style: italic;
+}
+footer div.team-container li{
+    font-style: italic;
+    list-style-type: none;
+    align-content: center;
+}
+footer div.team-container li h4{
+    font-weight: 700;
+    color: rgba(166, 50, 50, 1);
+}
+footer div.team-container li h4, p{
+    margin-right:75px;
+}
+footer div.team-container img{
+    height: 159px;
+    width:  159px;
+    border-radius:100% ;
+}

@@ -37,6 +37,7 @@ const NavBar = () => {
         <ul className={`${styles.menu} ${menuVisible ? styles["menu-visible"] : styles["menu-hidden"]}`}>
           <li><NavLink to="/" activeClassName={styles.active}>Home</NavLink></li>
           <li><NavLink to="/sobre" activeClassName={styles.active}>Sobre</NavLink></li>
+        {/**
           <li className={styles.dropdown}>
             <a href="#" className={styles.dropbtn}>Publicações</a>
             <div className={styles["dropdown-content"]}>
@@ -44,7 +45,7 @@ const NavBar = () => {
               <NavLink to="/servicos" activeClassName={styles.active}>Serviços</NavLink>
               <NavLink to="/produtos" activeClassName={styles.active}>Produtos</NavLink>
             </div>
-          </li>
+          </li> */}
           <li>
             <input type="checkbox" id="search-toggle" className={styles["search-toggle"]} />
             <div className={styles["search-bar"]}>
