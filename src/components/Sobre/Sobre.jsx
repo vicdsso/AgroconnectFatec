@@ -1,6 +1,7 @@
  import React from 'react'
 import style from "./Sobre.module.css"
 import { Link, useNavigate } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 
 const Sobre = () => {

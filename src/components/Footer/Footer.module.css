@@ -1,0 +1,56 @@
+div.rodape{
+    color: #FFFF;
+    background-color: rgb(1, 80, 1);
+    display: flex;
+}
+
+div.rodape img{
+    width: 150px;
+    height: 160px;
+    border-radius: 100% ;
+    
+}
+div.rodape h1{
+    margin-top: 50px;
+}
+
+div.rodape div.rodape-box{
+    float: right;
+    display: block;
+}
+
+div.rodape div.rodape-box ul{
+    padding-top: 20px;
+    position: relative;
+    
+}
+div.rodape div.rodape-box ul li{
+    font-size: 25px;
+    display: inline;
+    align-content: center;
+    padding: 100px;
+    list-style: disc;
+}
+div.rodape div.rodape-box ul li a:hover{
+    color: rgb(128, 128, 128);
+    
+}
+div.rodape div.rodape-box li a{
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    list-style: disc;
+}
+
+div.rodape div.rodape-box address{
+    font-size: 30px;
+    display: flex;
+    padding-left: 25px;
+    
+   
+}
+div.rodape div.rodape-box address a{
+    padding-right: 15px;
+    color: blue;
+    
+}
