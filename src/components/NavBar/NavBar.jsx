@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styles from './NavBar.module.css'; 
 import { NavLink } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import styles from './NavBar.module.css'; // Arquivo CSS de módulos
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,37 +28,45 @@ const NavBar = () => {
     };
   }, []);
 
-  let navbarClasses = `${styles.navbar} ${scrolled ? styles.scrolled : ''}`;
+  const navbarClasses = `navbar fixed-top navbar-expand-lg ${scrolled ? 'navbar-light bg-light' : 'navbar-light bg-light'}`;
 
   return (
-    <div className={navbarClasses}>
-      <div className={styles["top-bar"]}>
-        <img src="/img/logo.png" alt="Logo" className={styles.logo} />
-        <h4 className={styles.agroconnect}>Agroconnect</h4>
-      
-        <ul className={`${styles.menu} ${menuVisible ? styles["menu-visible"] : styles["menu-hidden"]}`}>
-          <li><NavLink to="/" activeClassName={styles.active}>Home</NavLink></li>
-          <li><NavLink to="/sobre" activeClassName={styles.active}>Sobre</NavLink></li>
-        {/**
-          <li className={styles.dropdown}>
-            <a href="#" className={styles.dropbtn}>Publicações</a>
-            <div className={styles["dropdown-content"]}>
-              <NavLink to="/maquinas" activeClassName={styles.active}>Máquinas</NavLink>
-              <NavLink to="/servicos" activeClassName={styles.active}>Serviços</NavLink>
-              <NavLink to="/produtos" activeClassName={styles.active}>Produtos</NavLink>
-            </div>
-          </li> */}
-          <li>
-            <input type="checkbox" id="search-toggle" className={styles["search-toggle"]} />
-            <div className={styles["search-bar"]}>
-              <label htmlFor="search-toggle" className={styles["search-icon"]}></label>
-              <input type="text" placeholder="Pesquisar..." className={styles["search-input"]} />
-            </div>
-          </li>
-          <li><NavLink to="/login" activeClassName={styles.active}>Login</NavLink></li>
-        </ul>
+    <nav className={navbarClasses}>
+      <div className="container-fluid">
+        <a className="navbar-brand" href="/">
+          <img src="/img/logo.png" alt="Logo" className={styles.navbarLogo} />
+          Agroconnect
+        </a>
+        <button className="navbar-toggler" type="button" onClick={toggleMenuVisibility}>
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className={`collapse navbar-collapse ${menuVisible ? 'show' : ''}`}>
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/" activeClassName={styles.active}>
+                <i className={`fas fa-home ${styles.iconLarge}`}></i> Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/sobre" activeClassName={styles.active}>
+                <i className={`fas fa-info-circle ${styles.iconLarge}`}></i> Sobre
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/login" activeClassName={styles.active}>
+                <i className={`fas fa-sign-in-alt ${styles.iconLarge}`}></i> Login
+              </NavLink>
+            </li>
+          </ul>
+          <form className="d-flex">
+            <input className="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search" />
+            <button className="btn btn-outline-success" type="submit">
+              <i className={`fas fa-search ${styles.iconLarge}`}></i>
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

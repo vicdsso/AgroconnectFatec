@@ -7,16 +7,7 @@
     padding: 0;
   }
   
-  .menu li {
-    margin-right: 120px;
-  }
-  
-  .menu li a {
-    color: rgb(12, 12, 12);
-    text-decoration: none;
-    font-size: 25px;
-    transition: color 0.3s ease;
-  }
+
   
   .agroconnect {
     color: rgb(0, 0, 0);
@@ -41,12 +32,14 @@
     z-index: 1000; 
   }
   
-  .top-bar .logo {
-    width: 150px;
-   
+  .navbarLogo{
+    width: 16vh;
   }
   
-  
+  .iconLarge{
+   font-size: 24px;
+   color: #8cc443;
+  }
   
   .top-bar h4 {
     color: rgb(0, 0, 0);

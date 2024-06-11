@@ -162,17 +162,29 @@
   .learn-more-button {
     display: flex;
     align-items: center; /* Alinha os itens centralmente */
-    padding: 10px 15px;
-    background-color: #00000052; /* Cor de fundo do botão */
-    color: white; /* Cor do texto do botão */
+    padding: 7px 7px;
+    background-color: #1111115d; /* Cor de fundo do botão */
+    color: rgb(255, 255, 255); /* Cor do texto do botão */
     border: none;
-    border-radius: 5px; /* Cantos arredondados */
+    border-radius: 45px; /* Cantos arredondados */
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease; /* Animação na mudança de cor de fundo */
     margin-top: 20px; /* Espaçamento entre o texto do banner e o botão */
-    box-shadow: 10px 10px 20px 0px rgba(174, 162, 4, 0.821);
+    box-shadow: 10px 10px 20px 0px rgba(163, 238, 128, 0.658);
     font-weight: bold;
+  }
+ 
+  .icon-container {
+    margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+  }
+  
+  .icon {
+    font-size: 20px; /* Ajusta o tamanho do ícone */
+  }
+  
+  .learn-more-text {
+    color: #ffffff; /* Cor do texto */
   }
   
   /* Estilo para o ícone dentro de um círculo */
@@ -183,7 +195,7 @@
     width: 40px; /* Largura do círculo */
     height: 40px; /* Altura do círculo */
     border-radius: 50%; /* Forma circular */
-    background-color: rgb(255, 242, 0); /* Cor de fundo do círculo */
+    background-color: #76ce04; /* Cor de fundo do círculo */
     margin-right: 10px; /* Espaçamento entre o círculo e o texto */
   }
   

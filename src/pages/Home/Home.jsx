@@ -29,15 +29,15 @@ const handleScrollToSobre = () => {
             <h1>Seja bem-vindos ao Agroconnect</h1>
             <h2>Conectando o mundo do agronegócio!</h2>
           </div>
-          {/* Botão "Saiba Mais" */}
-          <div className={style["button-container"]}>
-            <button className={style["learn-more-button"]} onClick={handleScrollToSobre}>
-              <span className={style["icon-container"]}>
-                <span className={style["icon"]}>&#9660;</span> {/* Ícone de flecha para baixo */}
-              </span>
-              <span className={style["learn-more-text"]}>Saiba Mais</span>
-            </button>
-          </div>
+        {/* Botão "Saiba Mais" */}
+<div className={style["button-container"]}>
+  <button className={style["learn-more-button"]} onClick={handleScrollToSobre}>
+    <span className={style["icon-container"]}>
+      <span className={style["icon"]}>&#9660;</span> {/* Ícone de flecha para baixo */}
+    </span>
+    <span className={style["learn-more-text"]}>Saiba Mais</span>
+  </button>
+</div>
         </div>
 
         {/* Conteúdo de cartões após o banner */}
