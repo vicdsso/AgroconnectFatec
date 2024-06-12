@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavBar from "./components/NavBar/NavBar";
 import Perfil from "./pages/Perfil/Perfil";
@@ -35,7 +36,7 @@ function App() {
           <Route path="/editar" element={<EditarPubli />} />
         </Routes>
       </div>
-    
+      <Footer />
     </BrowserRouter>
   );
 }
