@@ -1,86 +1,81 @@
-import React from 'react'
-import style from "./Sobre.module.css"
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
+import style from "./Sobre.module.css"; // assuming you have a CSS module for custom styles
 
 const Sobre = () => {
-    const navigate = useNavigate();
-
-    const handleClick = () => {
-        navigate('/login');
-    };
-
     return (
-        <>
-            <footer className={style["footer-container"]}>
-                <div className={style["content-container"]}>
+        <div className={`container ${style["sobre-background"]}`}> {/* Applying custom background */}
+            <div className="row">
+                <div className="col-lg-8">
                     <h1>Sobre nós</h1>
                     <h3>Conectando o Agronégocio</h3>
                     <ul>
                         <li>
-                            <img src="../../../public/img/CONECTAR.png" alt="" />
-                            O Agroconnect é seu portal para oportunidades no campo agricola. 
-                            Parceiros podem anunciar ofertas, enquanto usuarios exploram soluções para 
-                            suas necessidades agricolas.
+                            <img src="../../../public/img/CONECTAR.png" alt="" className={style["sobre-icon"]} /> {/* Adding custom style for icons */}
+                            O Agroconnect é seu portal para oportunidades no campo agrícola. 
+                            Parceiros podem anunciar ofertas, enquanto usuários exploram soluções para 
+                            suas necessidades agrícolas.
                         </li>
                         <li>
-                            <img src="../../../public/img/maoplanta.png" alt="" />
+                            <img src="../../../public/img/maoplanta.png" alt="" className={style["sobre-icon"]} />
                             O que oferecemos: 
-                            <ul className={style["lista-missao"]}>
+                            <ul>
                                 <li>Divulgação Eficiente: Parceiros anunciam suas ofertas.</li>
-                                <li>Exploração Simplificada: Usuarios encontram suas soluções.</li>
+                                <li>Exploração Simplificada: Usuários encontram suas soluções.</li>
                             </ul>
                         </li>
                         <li>
-                            <img src="../../../public/img/two-friends.png" alt="" />
+                            <img src="../../../public/img/two-friends.png" alt="" className={style["sobre-icon"]} />
                             Nossa abordagem:
-                            <ul className={style["lista-missao"]}>
-                                <li>Centrada no Usuario: Facilitamos interações e transações.</li>
-                                <li>Transparencia e Confiança: Garantimos informações confiavéis.</li>
+                            <ul>
+                                <li>Centrada no Usuário: Facilitamos interações e transações.</li>
+                                <li>Transparência e Confiança: Garantimos informações confiáveis.</li>
                             </ul>
                         </li>
                         <li>
-                            <img src="../../../public/img/PLATAFORMA.png" alt="" />
+                            <img src="../../../public/img/PLATAFORMA.png" alt="" className={style["sobre-icon"]} />
                             Como funciona:
-                            <ul className={style["lista-missao"]}>
-                                <li>Publicações dos parceiros: Parceiros criam e compartilham conteudos.</li>
-                                <li>Torne-se um Parceiro: Empresas rurais têm acesso a essas funcionalidades</li>
+                            <ul>
+                                <li>Publicações dos parceiros: Parceiros criam e compartilham conteúdos.</li>
+                                <li>Torne-se um Parceiro: Empresas rurais têm acesso a essas funcionalidades.</li>
                             </ul>
                         </li>
                         <li>
-                            <img src="../../../public/img/junte-se.png" alt="" />
+                            <img src="../../../public/img/junte-se.png" alt="" className={style["sobre-icon"]} />
                             Junte-se a nós! 
                             <p>
                                 Faça parte de uma comunidade vibrante e crescente no 
-                                setor agricola.
+                                setor agrícola.
                             </p>
                         </li>
-                        <p ><strong>Para se tornar parceiro <span onClick={handleClick} style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}>Clique aqui!</span> </strong></p>
+                        <p><strong>Para se tornar parceiro <Link to="/login" style={{ color: 'black', textDecoration: 'underline' }}>Clique aqui!</Link></strong></p>
                     </ul>
                 </div>
-                <div className={style["team-container"]}>
-                    <h3>EQUIPE DE DEV.</h3>
-                    <ul className={style["team-agroconnect"]}>
-                        <li>
-                            <h4>SCRUM MASTER</h4>
-                            <img src="../../../public/img/vic.jpeg" alt="" />
-                            <p>Victoria</p>
-                        </li>
-                        <li>
-                            <h4>DEVELOPER</h4>
-                            <img src="../../../public/img/kamy (1).jpeg" alt="" />
-                            <p>Kamily</p>
-                        </li>
-                        <li>
-                            <h4>DEVELOPER</h4>
-                            <img src="../../../public/img/felipe.jpg" alt="" />
-                            <p>Luiz Filipe</p>
-                        </li>
-                    </ul>
+                <div className={`col-lg-4 ${style["dev-background"]}`}>  {/* Apply new class for background */}
+               <center> <h3>EQUIPE  DEV</h3></center>
+                   
+                    <ul className={style["team-agroconnect-vertical"]}> {/* Applying custom style for vertical alignment */}
+   <li>
+      <h4>SCRUM MASTER</h4>
+      <img src="../../../public/img/vic.jpeg" alt="" className={style["dev-img"]} /> {/* Adding custom style for developer images */}
+      <p>Victoria</p>
+   </li>
+   <li>
+      <h4>DEVELOPER</h4>
+      <img src="../../../public/img/kamy (1).jpeg" alt="" className={style["dev-img"]} />
+      <p>Kamily</p>
+   </li>
+   <li>
+      <h4>DEVELOPER</h4>
+      <img src="../../../public/img/felipe.jpg" alt="" className={style["dev-img"]} />
+      <p>Luiz Filipe</p>
+   </li>
+</ul>
                 </div>
-            </footer>
-        </>
-    )
+            </div>
+        </div>
+    );
 }
 
-export default Sobre
+export default Sobre;
