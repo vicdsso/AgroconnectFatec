@@ -28,6 +28,9 @@ function Login() {
     navigate('/cadastro');
   };
 
+  const handlePerfilrClick = () => {
+    navigate('/perfil');
+  };
   const handleCategoriaClick = (home) => {
     setCategoria(home);
   };
@@ -69,7 +72,8 @@ function Login() {
               </label>
             </div>
             <div className={styles.buttonContainer}>
-              <button type="submit" className={`btn ${styles.submitButton}`} onClick={() => handleCategoriaClick('home')}>
+              <button type="submit" onClick={handlePerfilrClick} className={`btn ${styles.submitButton}`}
+              >
                 Log in
               </button>
             </div>

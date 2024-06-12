@@ -6,12 +6,13 @@ import Produtos from "../../components/Publicacoes/Produtos";
 import Servicos from "../../components/Publicacoes/Servicos";
 import Sobre from "../../components/Sobre/Sobre"; 
 import BotaoTopo from "../../components/BotaoTopo/BotaoTopo";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
-const sobreRef = useRef(null); /*ROTA */
-const handleScrollToSobre = () => {
-  sobreRef.current.scrollIntoView({ behavior: 'smooth' });
-}; /*ROTA fim */
+  const sobreRef = useRef(null); /*ROTA */
+  const handleScrollToSobre = () => {
+    sobreRef.current.scrollIntoView({ behavior: 'smooth' });
+  }; /*ROTA fim */
 
   const [categoria, setCategoria] = useState('gerais'); // Valor padrão 'gerais'
 
@@ -29,15 +30,15 @@ const handleScrollToSobre = () => {
             <h1>Seja bem-vindos ao Agroconnect</h1>
             <h2>Conectando o mundo do agronegócio!</h2>
           </div>
-        {/* Botão "Saiba Mais" */}
-<div className={style["button-container"]}>
-  <button className={style["learn-more-button"]} onClick={handleScrollToSobre}>
-    <span className={style["icon-container"]}>
-      <span className={style["icon"]}>&#9660;</span> {/* Ícone de flecha para baixo */}
-    </span>
-    <span className={style["learn-more-text"]}>Saiba Mais</span>
-  </button>
-</div>
+          {/* Botão "Saiba Mais" */}
+          <div className={style["button-container"]}>
+            <button className={style["learn-more-button"]} onClick={handleScrollToSobre}>
+              <span className={style["icon-container"]}>
+                <span className={style["icon"]}>&#9660;</span> {/* Ícone de flecha para baixo */}
+              </span>
+              <span className={style["learn-more-text"]}>Saiba Mais</span>
+            </button>
+          </div>
         </div>
 
         {/* Conteúdo de cartões após o banner */}
@@ -77,12 +78,13 @@ const handleScrollToSobre = () => {
         {categoria === 'servicos' && <Servicos />}
 
         {/* Renderizar o componente Sobre */}
-        <div ref={sobreRef}>
-        <Sobre />
+        <div id="sobre" ref={sobreRef}>
+          <Sobre />
+        </div>
       </div>
-      </div>
-           {/* Adicionar o botão "Voltar ao Topo" */}
-           <BotaoTopo />
+      {/* Adicionar o botão "Voltar ao Topo" */}
+      <BotaoTopo />
+      <Footer />
     </>
   );
 };

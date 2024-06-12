@@ -212,7 +212,7 @@
   .button-container {
     display: flex;
     justify-content: center; /* Centraliza o botão horizontalmente */
-    margin-top: -100px; /* Espaçamento entre o botão e o texto do banner */
+    margin-top: -130px; /* Espaçamento entre o botão e o texto do banner */
   }
   
   

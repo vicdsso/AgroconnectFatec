@@ -4,6 +4,7 @@ div.container-publicacao{
     width: 1275px;
     height: 600px;
     padding: 25px;
+    padding-top: 9%;
     display: flex;
     margin: auto;
     margin-bottom: 75px;

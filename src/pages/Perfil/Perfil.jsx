@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import style from "./Perfil.module.css";
 import BotaoTopo from "../../components/BotaoTopo/BotaoTopo";
 import { useNavigate } from 'react-router-dom';
+import Footer from "../../components/Footer/Footer";
 
 const Perfil = () => {
   const navigate = useNavigate();
@@ -246,6 +247,8 @@ const Perfil = () => {
           </div>
         </div>
       </section>
+      <BotaoTopo />
+           <Footer/>
     </>
   );
 };
