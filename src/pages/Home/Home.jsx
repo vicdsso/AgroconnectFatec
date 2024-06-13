@@ -8,9 +8,11 @@ import Sobre from "../../components/Sobre/Sobre";
 import BotaoTopo from "../../components/BotaoTopo/BotaoTopo";
 import Avaform from "../../components/Avaliacaouser/Avaform";
 import Avalist from "../../components/Avaliacaouser/Avalist";
-
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 const Home = ({ publicacoesRef }) => {
   const sobreRef = useRef(null);
+  const center = [-21.61065329792685, -48.36115475704479];
 
   const handleScrollToSobre = () => {
     sobreRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -90,6 +92,17 @@ const Home = ({ publicacoesRef }) => {
           <Avalist feedbacks={feedbacks} />
         </div>
       </div>
+      <center><h1>Localização</h1></center>
+      <MapContainer center={center} zoom={13} style={{ height: '400px' }}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={center}>
+          <Popup>
+            Estou aqui!
+          </Popup>
+        </Marker>
+      </MapContainer>
       <BotaoTopo />
     </>
   );
