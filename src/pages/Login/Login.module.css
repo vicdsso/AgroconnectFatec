@@ -1,3 +1,12 @@
+.input-valid {
+  border-color: #28a745;
+}
+
+.input-invalid {
+  border-color: #dc3545;
+}
+
+
 .containerLogin {
   background: url("/src/assets/pl.png") lightgray 100% / cover no-repeat;
   width: 100%;
