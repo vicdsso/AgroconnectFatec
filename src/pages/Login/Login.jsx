@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Notificacao from '../../components/Notificacao/Notificacao'; // Importe o componente de notificação
 import styles from './Login.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,6 +10,9 @@ function Login() {
     senha: '',
     lembrarMe: false // Novo estado para lembrar-me
   });
+
+  const [notificacao, setNotificacao] = useState(null); // Estado de notificação
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -22,17 +26,25 @@ function Login() {
     e.preventDefault();
     // Lógica para lidar com a submissão do formulário
     console.log(form);
+
+    // Simulando uma resposta de sucesso (descomente para testar):
+     setNotificacao({ tipo: 'sucesso', mensagem: 'Login realizado com sucesso!' });
+
+    // Simulando uma resposta de erro (descomente para testar):
+    //setNotificacao({ tipo: 'erro', mensagem: 'Email ou senha incorretos. Por favor, tente novamente.' });
+
+    setTimeout(() => {
+      setNotificacao(null); // Limpa a notificação após um período de tempo
+    }, 5000); // Tempo em milissegundos (3 segundos neste exemplo)
+
+    // Redireciona para o perfil após 3 segundos (para visualizar a notificação)
+    setTimeout(() => {
+      navigate('/perfil');
+    }, 2000);
   };
 
   const handleRegisterClick = () => {
     navigate('/cadastro');
-  };
-
-  const handlePerfilrClick = () => {
-    navigate('/perfil');
-  };
-  const handleCategoriaClick = (home) => {
-    setCategoria(home);
   };
 
   return (
@@ -41,6 +53,7 @@ function Login() {
         <div className={`card-body ${styles.cardBody}`}>
           <h2 className={styles.formTitle}>Use uma conta para entrar.</h2>
           <hr className={styles.hrStyle} />
+          {notificacao && <Notificacao tipo={notificacao.tipo} mensagem={notificacao.mensagem} />} {/* Exibição da notificação */}
           <form onSubmit={handleSubmit}>
             <input
               type="email"
@@ -72,8 +85,7 @@ function Login() {
               </label>
             </div>
             <div className={styles.buttonContainer}>
-              <button type="submit" onClick={handlePerfilrClick} className={`btn ${styles.submitButton}`}
-              >
+              <button type="submit" className={`btn ${styles.submitButton}`}>
                 Log in
               </button>
             </div>
