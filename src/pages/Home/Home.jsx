@@ -92,6 +92,7 @@ const Home = ({ publicacoesRef }) => {
           <Avalist feedbacks={feedbacks} />
         </div>
       </div>
+   
       <center><h1>Localização</h1></center>
       <MapContainer center={center} zoom={13} style={{ height: '400px' }}>
         <TileLayer
@@ -103,7 +104,9 @@ const Home = ({ publicacoesRef }) => {
           </Popup>
         </Marker>
       </MapContainer>
+   
       <BotaoTopo />
+      
     </>
   );
 };
