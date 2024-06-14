@@ -1,3 +1,13 @@
+.input-valid {
+    border-color: #28a745;
+}
+
+.input-invalid {
+    border-color: #dc3545;
+}
+
+
+
 div.container-publicacao{
     background-image:url("../../../public/img/Sem\ título.jpg") ;
     /* background-size: 500px; */

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Notificacao from '../../components/Notificacao/Notificacao'; // Importe o componente de notificação
 import styles from './Login.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'; // Importe os ícones do FontAwesome
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
@@ -27,20 +29,24 @@ function Login() {
     // Lógica para lidar com a submissão do formulário
     console.log(form);
 
-    // Simulando uma resposta de sucesso (descomente para testar):
-     setNotificacao({ tipo: 'sucesso', mensagem: 'Login realizado com sucesso!' });
+    // Verifica se o formulário é válido antes de prosseguir
+    if (e.target.checkValidity()) {
+      // Simulando uma resposta de sucesso
+      setNotificacao({ tipo: 'sucesso', mensagem: 'Login realizado com sucesso!' });
 
-    // Simulando uma resposta de erro (descomente para testar):
-    //setNotificacao({ tipo: 'erro', mensagem: 'Email ou senha incorretos. Por favor, tente novamente.' });
+      // Redireciona para o perfil após 3 segundos (para visualizar a notificação)
+      setTimeout(() => {
+        navigate('/perfil');
+      }, 2000);
+    } else {
+      // Simulando uma resposta de erro
+      setNotificacao({ tipo: 'erro', mensagem: 'Email ou senha incorretos. Por favor, tente novamente.' });
 
-    setTimeout(() => {
-      setNotificacao(null); // Limpa a notificação após um período de tempo
-    }, 5000); // Tempo em milissegundos (3 segundos neste exemplo)
-
-    // Redireciona para o perfil após 3 segundos (para visualizar a notificação)
-    setTimeout(() => {
-      navigate('/perfil');
-    }, 2000);
+      // Limpa a notificação após um período de tempo
+      setTimeout(() => {
+        setNotificacao(null);
+      }, 5000); // Tempo em milissegundos (5 segundos neste exemplo)
+    }
   };
 
   const handleRegisterClick = () => {
@@ -61,16 +67,22 @@ function Login() {
               placeholder="Email"
               value={form.email}
               onChange={handleChange}
-              className={`form-control ${styles.inputField}`}
+              className={`form-control ${styles.inputField} ${form.email ? styles['input-valid'] : styles['input-invalid']}`}
+              required
             />
+            {form.email && <FontAwesomeIcon icon={faCheckCircle} className={styles["icon-valid"]} />}
+            {!form.email && <FontAwesomeIcon icon={faExclamationCircle} className={styles["icon-invalid"]} />}
             <input
               type="password"
               name="senha"
               placeholder="Senha"
               value={form.senha}
               onChange={handleChange}
-              className={`form-control ${styles.inputField}`}
+              className={`form-control ${styles.inputField} ${form.senha ? styles['input-valid'] : styles['input-invalid']}`}
+              required
             />
+            {form.senha && <FontAwesomeIcon icon={faCheckCircle} className={styles["icon-valid"]} />}
+            {!form.senha && <FontAwesomeIcon icon={faExclamationCircle} className={styles["icon-invalid"]} />}
             <div className="form-check mb-3">
               <input
                 type="checkbox"
