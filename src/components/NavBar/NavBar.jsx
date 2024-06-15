@@ -4,7 +4,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import styles from './NavBar.module.css'; // Arquivo CSS de módulos
-
+/*import Temas from './Temas'*/
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
@@ -79,6 +79,9 @@ const NavBar = () => {
               </li>
             </ul>
           </div>
+          <div className="d-flex ms-auto">
+  {/*<Temas></Temas>*/}
+  </div>
           <form className="d-flex ms-auto">
             <input className="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search" />
             <button className="btn btn-outline-success" type="submit">
