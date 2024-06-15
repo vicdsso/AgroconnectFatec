@@ -4,6 +4,7 @@ import style from "./Perfil.module.css";
 import BotaoTopo from "../../components/BotaoTopo/BotaoTopo";
 import { useNavigate } from 'react-router-dom';
 import Footer from "../../components/Footer/Footer";
+import Botaogeral from '../Botaogeral.module.css'
 
 const Perfil = () => {
   const navigate = useNavigate();
@@ -179,7 +180,7 @@ const Perfil = () => {
      
     </div>
     <hr/>
-    <button onClick={handleCriarClick} className={style.criar}>Criar publicação</button>
+    <button onClick={handleCriarClick} className={Botaogeral['btn-primary']}>Criar publicação</button>
     <section>
         <div className={style.estrutura}>
           <div className={style.row}>
