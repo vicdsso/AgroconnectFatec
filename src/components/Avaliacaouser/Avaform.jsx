@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Botaogeral from '../../pages/Botaogeral.module.css'
 const Avaform = ({ addFeedback }) => {
   const [name, setName] = useState('');
   const [rating, setRating] = useState(0);
@@ -55,7 +55,7 @@ const Avaform = ({ addFeedback }) => {
           required
         />
       </div>
-      <button type="submit" className="btn btn-primary">Enviar Avaliação</button>
+      <button type="submit" className={Botaogeral['btn-primary']}>Enviar Avaliação</button>
     </form>
   );
 };

@@ -5,6 +5,7 @@ import styles from './Cadastro.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'; // Importe os ícones do FontAwesome
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Botaogeral from '../Botaogeral.module.css'
 
 function SignupForm() {
   const [form, setForm] = useState({
@@ -139,7 +140,7 @@ function SignupForm() {
                 {!senhaValida && <FontAwesomeIcon icon={faExclamationCircle} className={styles["icon-invalid"]} />}
               </div>
               <div className="d-grid gap-2">
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className={Botaogeral['btn-primary']}>
                   Cadastrar-se
                 </button>
               </div>

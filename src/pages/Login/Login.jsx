@@ -5,6 +5,7 @@ import styles from './Login.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'; // Importe os ícones do FontAwesome
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Botaogeral from '../Botaogeral.module.css'
 
 function Login() {
   const [form, setForm] = useState({
@@ -97,9 +98,10 @@ function Login() {
               </label>
             </div>
             <div className={styles.buttonContainer}>
-              <button type="submit" className={`btn ${styles.submitButton}`}>
+     <button type="submit" className={`btn ${Botaogeral['btn-primary']}`}>
                 Log in
               </button>
+
             </div>
           </form>
           <div className={styles.loginLinkContainer}>
