@@ -14,7 +14,7 @@ import Cadastro from "./pages/Cadastro/Cadastro";
 import PostCompleto from "./pages/PostCompleto/PostCompleto";
 import CriarPubli from "./pages/CriarPubli/CriarPubli";
 import EditarPubli from "./pages/EditarPubli/EditarPubli";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 import DashBoard from "./pages/DashBoard/DashBoard";
 
 
@@ -40,7 +40,6 @@ function App() {
           <Route path="/criar" element={<CriarPubli />} />
           <Route path="/editar" element={<EditarPubli />} />
           <Route path="/dashboard" element={<DashBoard/>} />
-          
         </Routes>
         
       </div>
