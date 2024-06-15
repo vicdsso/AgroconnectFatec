@@ -104,6 +104,7 @@ const Home = ({ publicacoesRef }) => {
           </Popup>
         </Marker>
       </MapContainer>
+      
    
       <BotaoTopo />
       
