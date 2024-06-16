@@ -3,6 +3,7 @@ import axios from 'axios'
 
 
 const UserTable = () => {
+    
     const [user, setUsers]= useState([])
     useEffect(()=>{
         axios.get('/api/users')

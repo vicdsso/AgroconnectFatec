@@ -6,7 +6,6 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'r
 
 const UserChart = () => {
     const [ data, setData ] = useState([])
-
     useEffect(()=>{
         axios.get('/api/user-entries')
         .then(response=>{
