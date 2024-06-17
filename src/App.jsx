@@ -51,10 +51,6 @@ function App() {
   );
 };
 
-const AppWrapper = () => (
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
 
-export default AppWrapper;
+
+export default App;
