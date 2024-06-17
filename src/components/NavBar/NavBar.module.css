@@ -3,6 +3,18 @@
   transition: background-color 0.5s ease, border-bottom 0.5s ease;
 }
 
+
+/* Adicione estas regras no seu arquivo CSS de módulos */
+
+/* Estilos para itens da navbar em tema escuro */
+.theme-escuro .nav-link {
+  color: #ffffff !important; /* Cor branca para os itens da navbar */
+}
+.theme-escuro .navbar-toggler-icon {
+  color: #ffffff !important; /* Cor branca para o ícone do botão de menu */
+}
+
+
 .navbar-light.bg-transparent {
   background-color: transparent;
   border-bottom: none;
