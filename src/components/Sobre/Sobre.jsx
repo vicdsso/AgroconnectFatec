@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../Footer/Footer';
-import style from "./Sobre.module.css"; // assuming you have a CSS module for custom styles
+import style from "./Sobre.module.css"; 
+import { logEvent } from '../../GoogleAnalytics/analytics'; 
 
 const Sobre = () => {
     return (
-        <div className={`container ${style["sobre-background"]}`}> {/* Applying custom background */}
+        <div className={`container ${style["sobre-background"]}`}>
             <div className="row">
                 <div className="col-lg-8">
                     <h1>Sobre nós</h1>
-                    <h3>Conectando o Agronégocio</h3>
+                    <h3>Conectando o Agronegócio</h3>
                     <ul>
                         <li>
-                            <img src="../../../public/img/CONECTAR.png" alt="" className={style["sobre-icon"]} /> {/* Adding custom style for icons */}
+                            <img src="../../../public/img/CONECTAR.png" alt="" className={style["sobre-icon"]} />
                             O Agroconnect é seu portal para oportunidades no campo agrícola. 
                             Parceiros podem anunciar ofertas, enquanto usuários exploram soluções para 
                             suas necessidades agrícolas.
@@ -49,29 +49,28 @@ const Sobre = () => {
                                 setor agrícola.
                             </p>
                         </li>
-                        <p><strong>Para se tornar parceiro <Link to="/login" style={{ color: 'black', textDecoration: 'underline' }}>Clique aqui!</Link></strong></p>
+                        <p><strong>Para se tornar parceiro <Link to="/login" style={{ color: 'black', textDecoration: 'underline' }} onClick={() => logEvent('Link', 'Clique Aqui')}>Clique aqui!</Link></strong></p>
                     </ul>
                 </div>
-                <div className={`col-lg-4 ${style["dev-background"]}`}>  {/* Apply new class for background */}
-               <center> <h3>EQUIPE  DEV</h3></center>
-                   
-                    <ul className={style["team-agroconnect-vertical"]}> {/* Applying custom style for vertical alignment */}
-   <li>
-      <h4>SCRUM MASTER</h4>
-      <img src="../../../public/img/vic.jpeg" alt="" className={style["dev-img"]} /> {/* Adding custom style for developer images */}
-      <p>Victoria</p>
-   </li>
-   <li>
-      <h4>DEVELOPER</h4>
-      <img src="../../../public/img/kamy (1).jpeg" alt="" className={style["dev-img"]} />
-      <p>Kamily</p>
-   </li>
-   <li>
-      <h4>DEVELOPER</h4>
-      <img src="../../../public/img/felipe.jpg" alt="" className={style["dev-img"]} />
-      <p>Luiz Filipe</p>
-   </li>
-</ul>
+                <div className={`col-lg-4 ${style["dev-background"]}`}>
+                    <center> <h3>EQUIPE DEV</h3></center>
+                    <ul className={style["team-agroconnect-vertical"]}>
+                        <li>
+                            <h4>SCRUM MASTER</h4>
+                            <img src="../../../public/img/vic.jpeg" alt="" className={style["dev-img"]} />
+                            <p>Victoria</p>
+                        </li>
+                        <li>
+                            <h4>DEVELOPER</h4>
+                            <img src="../../../public/img/kamy (1).jpeg" alt="" className={style["dev-img"]} />
+                            <p>Kamily</p>
+                        </li>
+                        <li>
+                            <h4>DEVELOPER</h4>
+                            <img src="../../../public/img/felipe.jpg" alt="" className={style["dev-img"]} />
+                            <p>Luiz Filipe</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
