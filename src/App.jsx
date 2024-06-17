@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { logPageView } from './GoogleAnalytics/analytics';
 
 import NavBar from "./components/NavBar/NavBar";
 import Perfil from "./pages/Perfil/Perfil";
@@ -19,31 +20,41 @@ import { AuthProvider } from '../src/Firebase/AuthContext';
 function App() {
   const publicacoesRef = useRef(null);
   const [categoria, setCategoria] = useState('gerais');
-
+  /*const location = useLocation();*/
   const handlePublicacoesClick = (nomeCategoria = 'gerais') => {
     setCategoria(nomeCategoria);
     publicacoesRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    logPageView();
+  }, [location]);
+
   return (
     <AuthProvider>
       <BrowserRouter>
-        <NavBar onPublicacoesClick={handlePublicacoesClick} />
-        <div>
-          <Routes>
-            <Route path="/" element={<Home publicacoesRef={publicacoesRef} categoria={categoria} />} />
-            <Route path="/perfil" element={<ProtectedRoute element={Perfil} />} />
-            <Route path="/postcompleto" element={<ProtectedRoute element={PostCompleto} />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/criar" element={<ProtectedRoute element={CriarPubli} />} />
-            <Route path="/editar" element={<ProtectedRoute element={EditarPubli} />} />
-            <Route path="/dashboard" element={<ProtectedRoute element={DashBoard} />} />
-          </Routes>
-        </div>
+      <NavBar onPublicacoesClick={handlePublicacoesClick} />
+      <div>
+        <Routes>
+          <Route path="/" element={<Home publicacoesRef={publicacoesRef} categoria={categoria} />} />
+          <Route path="/perfil" element={<ProtectedRoute element={Perfil} />} />
+          <Route path="/postcompleto" element={<ProtectedRoute element={PostCompleto} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/criar" element={<ProtectedRoute element={CriarPubli} />} />
+          <Route path="/editar" element={<ProtectedRoute element={EditarPubli} />} />
+          <Route path="/dashboard" element={<ProtectedRoute element={DashBoard} />} />
+        </Routes>
+      </div>
       </BrowserRouter>
     </AuthProvider>
   );
-}
+};
 
-export default App;
+const AppWrapper = () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+export default AppWrapper;
