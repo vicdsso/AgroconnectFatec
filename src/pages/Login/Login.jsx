@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Notificacao from '../../components/Notificacao/Notificacao'; // Importe o componente de notificação
 import styles from './Login.module.css';
+import { auth } from '../../Firebase/Firebaseconfig';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'; // Importe os ícones do FontAwesome
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Botaogeral from '../Botaogeral.module.css'
+import Botaogeral from '../Botaogeral.module.css';
 
 function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [form, setForm] = useState({
     email: '',
     senha: '',
@@ -25,22 +29,17 @@ function Login() {
     setForm({ ...form, [name]: newValue });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Lógica para lidar com a submissão do formulário
-    console.log(form);
-
-    // Verifica se o formulário é válido antes de prosseguir
-    if (e.target.checkValidity()) {
-      // Simulando uma resposta de sucesso
+    try {
+      await signInWithEmailAndPassword(auth, form.email, form.senha);
       setNotificacao({ tipo: 'sucesso', mensagem: 'Login realizado com sucesso!' });
 
-      // Redireciona para o perfil após 3 segundos (para visualizar a notificação)
+      // Redireciona para o perfil após 2 segundos (para visualizar a notificação)
       setTimeout(() => {
         navigate('/perfil');
       }, 2000);
-    } else {
-      // Simulando uma resposta de erro
+    } catch (error) {
       setNotificacao({ tipo: 'erro', mensagem: 'Email ou senha incorretos. Por favor, tente novamente.' });
 
       // Limpa a notificação após um período de tempo
@@ -98,10 +97,9 @@ function Login() {
               </label>
             </div>
             <div className={styles.buttonContainer}>
-     <button type="submit" className={`btn ${Botaogeral['btn-primary']}`}>
+              <button type="submit" className={`btn ${Botaogeral['btn-primary']}`}>
                 Log in
               </button>
-
             </div>
           </form>
           <div className={styles.loginLinkContainer}>
