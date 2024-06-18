@@ -10,6 +10,9 @@ import Avaform from "../../components/Avaliacaouser/Avaform";
 import Avalist from "../../components/Avaliacaouser/Avalist";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import Footer from "../../components/Footer/Footer";
+
+
 const Home = ({ publicacoesRef }) => {
   const sobreRef = useRef(null);
   const center = [-21.61065329792685, -48.36115475704479];
@@ -104,10 +107,8 @@ const Home = ({ publicacoesRef }) => {
           </Popup>
         </Marker>
       </MapContainer>
-      
-   
       <BotaoTopo />
-      
+      <Footer />
     </>
   );
 };
