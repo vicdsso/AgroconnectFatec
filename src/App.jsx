@@ -20,7 +20,6 @@ import { AuthProvider } from '../src/Firebase/AuthContext';
 function App() {
   const publicacoesRef = useRef(null);
   const [categoria, setCategoria] = useState('gerais');
-  /*const location = useLocation();*/
   const handlePublicacoesClick = (nomeCategoria = 'gerais') => {
     setCategoria(nomeCategoria);
     publicacoesRef.current.scrollIntoView({ behavior: 'smooth' });
