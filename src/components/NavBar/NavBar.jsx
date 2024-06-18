@@ -71,8 +71,9 @@ const NavBar = () => {
         </button>
         <div className={`collapse navbar-collapse ${menuVisible ? 'show' : ''}`}>
           <div className="mx-auto d-flex align-items-center justify-content-center">
-            <ul className={`navbar-nav ${styles.menu}`}>
+            <ul className={`navbar-nav menu-navegacao ${styles.menu}`}>
               {/* Dropdown de tema */}
+              
               <li className={`nav-item dropdown ${styles.navItem}`}>
                 <a className={`nav-link dropdown-toggle ${textColorClass}`} href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Tema
@@ -83,18 +84,19 @@ const NavBar = () => {
                   <span className="dropdown-item" onClick={() => toggleTheme('dinamico')}>Dinâmico</span>
                 </div>
               </li>
+
               {/* Fim do dropdown */}
-              <li className={`nav-item ${styles.navItem}`}>
+              <li className={`nav-item item-navegacao${styles.navItem}`}>
                 <NavLink className={`nav-link ${textColorClass}`} to="/" activeClassName={styles.active}>
                   <i className={`fas fa-home ${styles.iconLarge}`}></i> Home
                 </NavLink>
               </li>
-              <li className={`nav-item ${styles.navItem}`}>
+              <li className={`nav-item item-navegacao${styles.navItem}`}>
                 <span className={`nav-link ${textColorClass}`} onClick={handleScrollToSobre} style={{ cursor: 'pointer' }}>
                   <i className={`fas fa-info-circle ${styles.iconLarge}`}></i> Sobre
                 </span>
               </li>
-              <li className={`nav-item ${styles.navItem}`}>
+              <li className={`nav-item item-navegacao${styles.navItem}`}>
                 <NavLink className={`nav-link ${textColorClass}`} to="/login" activeClassName={styles.active}>
                   <i className={`fas fa-sign-in-alt ${styles.iconLarge}`}></i> Login
                 </NavLink>
