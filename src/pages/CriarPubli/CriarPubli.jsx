@@ -30,6 +30,7 @@ function CriarPubli() {
     };
 
     return (
+        <div className={style["fundoIMG"]}>
         <div className={style["container-publicacao"]}>
             <div className={style["box-publicacao"]}>
                 <div className={style["titulo-publicacao"]}>
@@ -65,6 +66,7 @@ function CriarPubli() {
                 </form>
             </div>
             {notificacao && <Notificacao tipo={notificacao.tipo} mensagem={notificacao.mensagem} />}
+        </div>
         </div>
     );
 }

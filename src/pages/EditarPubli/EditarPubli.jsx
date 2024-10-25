@@ -3,6 +3,7 @@ import style from './EditarPubli.module.css'
 
 function EditarPubli() {
     return (
+        <div className={style["fundoIMG"]}>
         <div className={style["container-editar-publicacao"]}>
             <div className={style['box-editar-publicacao']}>
                 <div className={style["titulo-editar-publicacao"]}>
@@ -22,6 +23,7 @@ function EditarPubli() {
                 </form>
                 <button className={style["btn-alterar-publi"]}>Atualizar</button>
             </div>
+        </div>
         </div>
     )
 }

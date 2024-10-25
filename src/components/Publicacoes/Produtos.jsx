@@ -11,10 +11,8 @@ const Produtos = () => {
     navigate('/PostCompleto')
   }
   return (
-    <>Produtos
-       {/*img pra colocar em outra publi
-    https://girodoboi.canalrural.com.br/wp-content/uploads/sites/4/2021/04/historia-rainha-da-integracao-lavoura-pecuaria-floresta-marize-porto-fazenda-santa-brigida-6.jpeg */}
-   
+    <>
+      
       <section>
         <div className={style.estrutura}>
           <div className={style.row}>

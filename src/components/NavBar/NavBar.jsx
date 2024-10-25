@@ -1,4 +1,3 @@
-// src/components/NavBar/NavBar.jsx
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -56,7 +55,7 @@ const NavBar = () => {
     };
   }, []);
 
-  const navbarClasses = `navbar fixed-top navbar-expand-lg ${scrolled ? 'navbar-light bg-light' : 'navbar-light bg-transparent'}`;
+  const navbarClasses = `navbar fixed-top navbar-expand-lg navbar-light bg-light`;
 
   return (
     <nav className={navbarClasses}>

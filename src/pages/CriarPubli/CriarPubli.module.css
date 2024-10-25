@@ -6,11 +6,14 @@
     border-color: #dc3545;
 }
 
-
-
+ 
+.fundoIMG{
+    background: url("/public/img/criarEditar.jpg") lightgray 100% / cover no-repeat;
+  
+    height: 100vh;
+}
 div.container-publicacao{
-    background-image:url("../../../public/img/Sem\ título.jpg") ;
-    /* background-size: 500px; */
+   
     width: 1275px;
     height: 600px;
     padding: 25px;

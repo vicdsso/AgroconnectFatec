@@ -1,15 +1,24 @@
+
+.fundoIMG{
+    background: url("/public/img/criarEditar.jpg") lightgray 100% / cover no-repeat;
+  
+    height: 100vh;
+}
+
+
 div.container-editar-publicacao{
-    background-image:url("../../../public/img/Sem\ título.jpg") ;
-    /* background-size: 500px; */
+ 
     width: 1275px;
     height: 650px;
     padding: 25px;
     display: flex;
     margin: auto;
     margin-bottom: 75px;
+    padding-top: 10%;
 }
 
 div div.box-editar-publicacao{
+   
     width: 500px;
     height: 550px;
     margin: auto;
