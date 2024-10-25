@@ -1,7 +1,5 @@
-// src/AuthContext.js
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './Firebaseconfig';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { auth } from './Firebaseconfig'; // Importe sua configuração do Firebase Authentication
 
 const AuthContext = createContext();
 
@@ -10,17 +8,22 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
     });
+
     return unsubscribe;
   }, []);
 
   return (
-    <AuthContext.Provider value={{ currentUser }}>
+    <AuthContext.Provider value={{ user }}>
       {children}
     </AuthContext.Provider>
   );

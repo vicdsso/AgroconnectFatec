@@ -69,6 +69,7 @@ const NavBar = () => {
         </button>
         <div className={`collapse navbar-collapse ${menuVisible ? 'show' : ''}`}>
           <div className="mx-auto d-flex align-items-center justify-content-center">
+
             <ul className={`navbar-nav ${styles.menu}`}>
               <li className={`nav-item ${styles.navItem}`}>
                 <NavLink className="nav-link" to="/" activeClassName={styles.active}>
@@ -101,6 +102,7 @@ const NavBar = () => {
                   </li>
                 </>
               )}
+
             </ul>
           </div>
           <form className="d-flex ms-auto">
