@@ -1,16 +1,17 @@
-// Importe useState e useEffect no início do arquivo
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from 'react-router-dom';
-import { animateScroll as scroll } from 'react-scroll';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import styles from './NavBar.module.css'; // Arquivo CSS de módulos
+import { useAuth } from '../../Firebase/AuthContext'; // Importe o contexto de autenticação
+import { signOut } from 'firebase/auth';
+import { auth } from '../../Firebase/Firebaseconfig';
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
-  const [theme, setTheme] = useState('claro'); // Estado para controlar o tema selecionado
   const navigate = useNavigate();
+  const { currentUser } = useAuth(); // Use o contexto de autenticação
 
   const toggleMenuVisibility = () => {
     setMenuVisible(!menuVisible);
@@ -33,6 +34,11 @@ const NavBar = () => {
     }
   };
 
+  const handleLogout = async () => {
+    await signOut(auth);
+    navigate('/');
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -49,20 +55,12 @@ const NavBar = () => {
     };
   }, []);
 
-  const toggleTheme = (selectedTheme) => { // Função para alternar o tema
-    setTheme(selectedTheme);
-  };
-
-  const navbarClasses = `navbar fixed-top navbar-expand-lg ${
-    scrolled ? 'navbar-light' : 'navbar-dark'
-  } ${theme === 'escuro' ? 'bg-dark text-white' : theme === 'dinamico' ? 'bg-primary text-white' : 'bg-light'}`;
-
-  const textColorClass = theme === 'escuro' ? 'text-white' : 'text-dark'; // Classe para controlar a cor do texto
+  const navbarClasses = `navbar fixed-top navbar-expand-lg navbar-light bg-light`;
 
   return (
     <nav className={navbarClasses}>
       <div className="container-fluid">
-        <a className={`navbar-brand ${textColorClass}`} href="/">
+        <a className="navbar-brand" href="/">
           <img src="/img/logo.png" alt="Logo" className={styles.navbarLogo} />
           Agroconnect
         </a>
@@ -71,36 +69,40 @@ const NavBar = () => {
         </button>
         <div className={`collapse navbar-collapse ${menuVisible ? 'show' : ''}`}>
           <div className="mx-auto d-flex align-items-center justify-content-center">
-            <ul className={`navbar-nav menu-navegacao ${styles.menu}`}>
-              {/* Dropdown de tema */}
-              
-              <li className={`nav-item dropdown ${styles.navItem}`}>
-                <a className={`nav-link dropdown-toggle ${textColorClass}`} href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Tema
-                </a>
-                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <span className="dropdown-item" onClick={() => toggleTheme('claro')}>Claro</span>
-                  <span className="dropdown-item" onClick={() => toggleTheme('escuro')}>Escuro</span>
-                  <span className="dropdown-item" onClick={() => toggleTheme('dinamico')}>Dinâmico</span>
-                </div>
-              </li>
 
-              {/* Fim do dropdown */}
-              <li className={`nav-item item-navegacao${styles.navItem}`}>
-                <NavLink className={`nav-link ${textColorClass}`} to="/" activeClassName={styles.active}>
+            <ul className={`navbar-nav ${styles.menu}`}>
+              <li className={`nav-item ${styles.navItem}`}>
+                <NavLink className="nav-link" to="/" activeClassName={styles.active}>
                   <i className={`fas fa-home ${styles.iconLarge}`}></i> Home
                 </NavLink>
               </li>
-              <li className={`nav-item item-navegacao${styles.navItem}`}>
-                <span className={`nav-link ${textColorClass}`} onClick={handleScrollToSobre} style={{ cursor: 'pointer' }}>
+              <li className={`nav-item ${styles.navItem}`}>
+                <span className="nav-link" onClick={handleScrollToSobre} style={{ cursor: 'pointer' }}>
                   <i className={`fas fa-info-circle ${styles.iconLarge}`}></i> Sobre
                 </span>
               </li>
-              <li className={`nav-item item-navegacao${styles.navItem}`}>
-                <NavLink className={`nav-link ${textColorClass}`} to="/login" activeClassName={styles.active}>
-                  <i className={`fas fa-sign-in-alt ${styles.iconLarge}`}></i> Login
-                </NavLink>
-              </li>
+              {!currentUser && (
+                <li className={`nav-item ${styles.navItem}`}>
+                  <NavLink className="nav-link" to="/login" activeClassName={styles.active}>
+                    <i className={`fas fa-sign-in-alt ${styles.iconLarge}`}></i> Login
+                  </NavLink>
+                </li>
+              )}
+              {currentUser && (
+                <>
+                  <li className={`nav-item ${styles.navItem}`}>
+                    <NavLink className="nav-link" to="/perfil" activeClassName={styles.active}>
+                      <i className={`fas fa-user ${styles.iconLarge}`}></i> Perfil
+                    </NavLink>
+                  </li>
+                  <li className={`nav-item ${styles.navItem}`}>
+                    <button className="nav-link btn" onClick={handleLogout} style={{ cursor: 'pointer' }}>
+                      <i className={`fas fa-sign-out-alt ${styles.iconLarge}`}></i> Logout
+                    </button>
+                  </li>
+                </>
+              )}
+
             </ul>
           </div>
           <form className="d-flex ms-auto">

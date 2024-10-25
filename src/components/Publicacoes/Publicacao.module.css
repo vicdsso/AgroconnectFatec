@@ -2,6 +2,15 @@ hr {
     color: black;
 }
 
+
+.icone-editar {
+    align-items: end t;
+    width: 10% ;
+    margin-top: -90px ;
+    margin-left: 100% ;
+    cursor: pointer ;
+}
+
 .estrutura {
     min-height: 700px;
     max-height: 1000px;
@@ -43,9 +52,9 @@ hr {
 
 .pontinhos {
     align-items: end;
-    width: 7%;
-    margin-top: -60px;
-    margin-left: 90%;
+    width: 15%;
+    margin-top: -100px;
+    margin-left: 99%;
     cursor: pointer;
 }
 
