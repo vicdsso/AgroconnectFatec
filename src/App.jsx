@@ -36,13 +36,13 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home publicacoesRef={publicacoesRef} categoria={categoria} />} />
-          <Route path="/perfil" element={<ProtectedRoute element={Perfil} />} />
-          <Route path="/postcompleto" element={<ProtectedRoute element={PostCompleto} />} />
+          <Route path="/perfil" element={< Perfil/>} />
+          <Route path="/postcompleto" element={<PostCompleto />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/criar" element={<ProtectedRoute element={CriarPubli} />} />
-          <Route path="/editar" element={<ProtectedRoute element={EditarPubli} />} />
-          <Route path="/dashboard" element={<ProtectedRoute element={DashBoard} />} />
+          <Route path="/criar" element={<CriarPubli />} />
+          <Route path="/editar" element={<EditarPubli />} />
+          <Route path="/dashboard" element={<DashBoard />} />
         </Routes>
       </div>
       </BrowserRouter>
